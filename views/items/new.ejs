@@ -1,0 +1,142 @@
+<!--==========================================Include Header==========================================================-->
+<% include ../partials/header %>
+
+<!--==========================================Title of New Form======================================================-->
+<div class="container text-center text-white p-2 my-3">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">New Post</h3>
+</div>
+
+<!--==========================================New Form===============================================================-->
+<div class="container col-md-6 shadow-sm mt-5 mb-5 allformColor neweditpageAnimate rounded">
+  
+  <form action="/items" method="POST" enctype="multipart/form-data">
+    <div class="container text-white py-3">
+      
+      <!-- New Item Name -->
+      <div class="form-row">
+        <div class="form-group text-white col-md-6">
+          <label for="newItemName"><i class="fas fa-signature mr-2"></i>Material's Name</label>
+          <input type="text" class="form-control" id="newItemName" name="item[name]" placeholder="Ex. Socks">
+        </div>
+
+<!--==========================================Price===============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newPrice"><i class="fas fa-dollar-sign mr-2"></i>Price</label>
+          <input type="number" class="form-control" id="newPrice" name="item[price]" placeholder="Price (in American Dollars)" min="0.00" step="0.01" required>
+        </div>
+        
+<!--==========================================Author===============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newbookAuthor"><i class="fas fa-signature mr-2"></i>Author</label>
+          <input type="text" class="form-control" id="newbookAuthor" name="item[bookAuthor]" placeholder="Ex. Will Socks" list="authorName">
+                  <datalist id="authorName">
+          <option value="N/A" selected>N/A</option>
+          </datalist>
+        </div>
+      
+<!--==========================================Type===============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newType"><i class="fab fa-typo3 mr-2"></i>Type</label>
+          <input type="text" class="form-control" id="newType" name="item[type]" pattern="(Book|Electronics|Software|Hardware|Science|Other)" 
+          list="typeName" placeholder="Ex. Book" required>
+          
+          <datalist id="typeName">
+          <option value="Book" selected>Book</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Software">Software</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Science">Science</option>
+          <option value="Other">Other</option>
+          </datalist>
+        </div>
+
+<!--==========================================Condition============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="newDescription"><i class="fas fa-receipt mr-2"></i>Material's Condition</label>
+          <input type="text" class="form-control" id="newDescription" name="item[description]" 
+          pattern="(Almost Perfect Condition|Great Condition|Good Condition|Decent Condition|Bad Condition)"
+          list="descriptionName" placeholder="Ex. Good Condition" required>
+          
+          <datalist id="descriptionName">
+          <option value="Almost Perfect Condition" selected>Almost Perfect Condition</option>
+          <option value="Great Condition">Great Condition</option>
+          <option value="Good Condition">Good Condition</option>
+          <option value="Decent Condition">Decent Condition</option>
+          <option value="Bad Condition">Bad Condition</option>
+          </datalist>
+        </div>
+        
+        
+<!--==========================================Status============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newStatus"><i class="fas fa-receipt mr-2"></i>Material's Status</label>
+          <input type="text" class="form-control" id="newStatus" name="item[status]" 
+          pattern="(On Sale|Request Material)"
+          list="statusName" placeholder="Ex. On Sale" required>
+          
+          <datalist id="statusName">
+          <option value="On Sale" selected>On Sale</option>
+          <option value="Request Material">Request Material</option>
+          </datalist>
+        </div>
+
+<!--==========================================Location============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="newLocation"><i class="fas fa-map-marker-alt mr-2"></i>Preferred Location</label>
+          <input type="text" class="form-control" id="newLocation" name="item[location]"
+          pattern="(Memorial Student Union|Engineering Complex|Lewis Hall|Jernigan Library|Rhode Hall)"
+          list="locationName" placeholder="Ex. Rhode Hall" required>
+          <datalist id="locationName">
+          <option value="Memorial Student Union" selected>Bookstore</option>
+          <option value="Engineering Complex">1st Floor</option>
+          <option value="Lewis Hall">University Police</option>
+          <option value="Jernigan Library">1st Floor</option>
+          <option value="Rhode Hall">1st Floor</option>
+          </datalist>
+        </div>
+
+<!--==========================================Time============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newTime"><i class="far fa-clock mr-2"></i>Preferred Time</label>
+          <input type="text" class="form-control" id="newTime" name="item[time]" 
+          pattern="(08:00 - 12:00|1:00 - 5:00)"
+          list="timeName" required placeholder="Ex. 08:00 - 12:00">
+          <datalist id="timeName">
+          <option value="08:00 - 12:00" selected>AM</option>
+          <option value="1:00 - 5:00">PM</option>
+          </datalist>
+        </div>
+
+<!--==========================================Day============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="editDay"><i class="fas fa-calendar-day mr-2"></i></i>Preferred Days</label>
+          <input type="text" class="form-control" id="editDay" name="item[day]"
+          pattern="(Mon-Wed-Fri|Tue-Thur-Sun)"
+          list="dayName" required placeholder="Ex. Mon-Wed-Fri">
+          <datalist id="dayName">
+          <option value="Mon-Wed-Fri" selected>Mon-Wed-Fri</option>
+          <option value="Tue-Thur-Sun">Tue-Thur-Sun</option>
+          </datalist>
+        </div>
+
+<!--==========================================Image============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="newImage"><i class="fas fa-images mr-2"></i>Upload Image</label>
+          <input type="file" class="" id="newImage" name="image" accept="image/*" required>
+        </div>
+        
+      </div>
+
+<!--==========================================Sumbit============================================================-->
+      <button type="submit" class="btn text-white removeLink"><i class="fas fa-paste mr-2"></i>Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<!--==========================================Include Footer============================================================-->
+<% include ../partials/footer %>
+

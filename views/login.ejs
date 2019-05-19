@@ -1,0 +1,56 @@
+<!--==========================================Include Header==========================================================-->
+<% include ./partials/header %>
+
+<!--==========================================Title of Login Form======================================================-->
+<div class="container text-center text-white p-2 my-3">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">Login</h3>
+</div>
+
+<!--==========================================Edit Form======================================================-->
+<div class="container col-md-6 shadow-sm mt-3 mb-4 allformColor pageAnimate rounded">
+
+  <form action="/login" method="POST">
+      
+    <div class="container text-white py-3">
+    <div class="form-row">
+          
+<!--==========================================Username======================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputusername"><i class="fas fa-user mr-2"></i>Username</label>
+      <input type="text" class="form-control" id="inputusername" name="username" placeholder="Ex. John123">
+    </div>
+        
+<!--==========================================Password======================================================-->
+    <div class="form-group text-white col-md-6 mb">
+      <label for="inputpassword"><i class="fas fa-key mr-2"></i>Password</label>
+      <input type="password" class="form-control" id="inputpassword" name="password" placeholder="Ex. Doe123">
+      </div>
+        
+    <div class="form-group col-md-6">
+    </div>
+        
+<!--==========================================Forgot Password======================================================-->
+    <div class="form-group d-flex flex-row-reverse justify-content-start align-items-end text-white col-md-6 mb-0">
+      <a class="mb-0 text-white removeLinka" href="/forgot">Forgot Password?</a>
+    </div>
+        
+  </div>
+    
+<!--==========================================Login Button======================================================-->
+    <button type="submit" class="btn text-white removeLink"><i class="fas fa-sign-in-alt mr-2"></i>Login</button>
+    
+<!--==========================================Sign Up Link======================================================-->
+    <div class="mt-2">
+        <a class="mb-0 text-white removeLinka" href="/signup">Not Registered Yet? Click Here</a>
+    </div>
+    
+</div> 
+
+</form>
+
+</div>
+
+<!-- Includes The Header ejs -->
+<% include ./partials/footer %>
+

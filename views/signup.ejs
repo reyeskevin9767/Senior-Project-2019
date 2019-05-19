@@ -1,0 +1,94 @@
+<!--==========================================Include Header==========================================================-->
+<% include ./partials/header %>
+
+<!--==========================================Title of Edit Form======================================================-->
+<div class="container text-center text-white p-2 my-3">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">Signup</h3>
+</div>
+
+<!--==========================================Edit Form================================================================-->
+<div class="container col-md-6 shadow-sm mt-3 mb-4 allformColor pageAnimate rounded">
+  
+<form action="/signup" method="POST"  enctype="multipart/form-data">
+  <div class="container text-white py-3">
+    
+<!--==========================================Username================================================================-->
+    <div class="form-row">
+      <div class="form-group text-white col-md-6">
+        <label for="inputusername"><i class="fas fa-user mr-2"></i>Username (6-12 Characters)</label>
+        <input type="text" class="form-control" id="inputusername" name="username" 
+        pattern="[A-Za-z0-9_]{6,12}" 
+        title="Only letters (either case), numbers, and the underscore; More than 6 characters but no more than 12 characters."
+        placeholder="Ex. John Doe">
+    </div>
+    
+<!--==========================================Password===============================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputpassword"><i class="fas fa-key mr-2"></i>Password (More Than 8)</label>
+      <input type="password" class="form-control" id="inputpassword" name="password" 
+      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+      title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+      placeholder="Ex. 123abc">
+    </div>
+    
+<!--==========================================Firstname================================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputfirstname"><i class="fas fa-signature mr-2"></i>First Name</label>
+      <input type="text" class="form-control" id="inputfirstname" name="firstname" placeholder="Ex. John">
+    </div>
+    
+<!--==========================================Lastname================================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputlastname"><i class="fas fa-signature mr-2"></i>Last Name</label>
+      <input type="text" class="form-control" id="inputlastname" name="lastname" placeholder="Ex. Doe">
+    </div>
+    
+<!--==========================================Email================================================================-->
+    <div class="form-group text-white col-md-6">
+        <label for="inputemail"><i class="fas fa-envelope mr-2"></i>Email</label>
+        <input type="email" class="form-control" id="inputemail" name="email" 
+        title="Must be associated with Texas A&M University" pattern="([A-Za-z0-9-.]{1,20}@(students.tamuk.edu|tamuk.edu))" placeholder="Ex. joe@students.tamuk.edu">
+    </div>
+    
+<!--==========================================Admins================================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputadmin"><i class="fas fa-user-secret mr-2"></i>Admin Code</label>
+      <input type="text" class="form-control" id="inputadmin" name="adminCode" placeholder="Admin Code">
+    </div>
+    
+<!--==========================================Admins================================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="inputstudent"><i class="fas fa-user-secret mr-2"></i>Site Code</label>
+      <input type="text" class="form-control" id="inputstudent" name="studentCode" placeholder="Must Email Team For Code">
+    </div>
+    
+<!--==========================================Avatar================================================================-->
+    <div class="form-group text-white col-md-6">
+      <label for="uploadimage"><i class="fas fa-user-circle mr-2"></i>Avatar Image</label>
+      <input type="file" id="uploadimage" name="image"  accept="image/*"  title="Image Must Be an JPG or PNG" required>
+    </div>
+        
+  <!--==========================================CheckBoxs================================================================-->  
+        <div class="form-group text-white col-md-12">
+  <input type="checkbox" name="term" value="Term" required> I Have Read The Terms of Use<br>
+  <input type="checkbox" name="policy" value="Policy" required> I Have Read The Private Policy<br>
+
+    </div>
+  
+  </div>
+  
+  
+
+<!--==========================================Signup================================================================-->
+  <button type="submit" class="btn text-white removeLink"><i class="fas fa-sign-in-alt mr-2"></i>Signup</button>
+
+  </div>
+
+</form>
+
+</div>
+
+<!-- Includes The Header ejs -->
+<% include ./partials/footer %>
+

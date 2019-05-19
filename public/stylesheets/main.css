@@ -1,0 +1,408 @@
+body{
+    display: flex;
+    font-family: Arial;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #284B63;
+}
+
+
+#navcolor{
+    background-color: #284B63;
+
+}
+
+.btncolor{
+    background-color: #133C55;
+}
+
+.sectioncolor{
+    background-color: #59A5D8;
+}
+/* =================================== Form's CSS =================================== */
+.formColor{
+    background-color: #3C6E71;
+}
+
+#delete-form {
+    display: inline;
+}
+/* =================================== Index's CSS =================================== */
+.jumboColor{
+    background-color: #284B63;
+    color: #D9D9D9;
+}
+
+.buttonindexColor{
+    background: #3C6E71;
+}
+
+.searchbuttonColor{
+    background: #D9D9D9;
+    transition: background-color 0.5s ease-out;
+    color: #353535;   
+}
+
+.searchbuttonColor:hover{
+    background:#ffffff;
+}
+
+.cardindexColor{
+    background-color: #D9D9D9;
+    color: #353535;
+}
+
+.indexcardbuttonColor{
+    background: #284B63;
+    color: #ffffff;
+    transition: background-color 0.5s ease-out; 
+}
+
+.indexcardbuttonColor:hover{
+    background: #ffffff;
+
+}
+
+.indexremovelinkfromButton{
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.indexremovelinkfromButton:hover{
+    color: #353535;
+}
+
+.indexbuttonColor{
+    background: #4D8D91;
+    color: #D9D9D9;
+    transition: background-color 0.5s ease-out; 
+}
+
+.indexbuttonColor:hover{
+    background: #ffffff;
+    color: #ffffff;
+
+}
+
+.pageColor{
+    color: #284B63;
+}
+/* =================================== Items's Show CSS =================================== */
+.carditemsindexColor{
+    background-color: #D9D9D9;
+    color: #353535;
+}
+.reviewText{
+    text-align: justify;
+    word-wrap: break-word;
+}
+.reviewLink:hover{
+    text-decoration: none;
+}
+.itemAnimate{
+	opacity: 0;
+	animation: 1s slidefade2 1s forwards;
+    margin-top: 100px;
+}
+
+@keyframes slidefade2 {
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+.itemMaterialbuttonColor{
+    background: #284B63;
+    color: #ffffff;
+    transition: background-color 0.5s ease-out; 
+}
+
+.itemMaterialbuttonColor:hover{
+    background: #ffffff;
+
+}
+
+.deleteitembuttonColor{
+    background: #D1345B;
+    color: #D9D9D9;    
+    transition: background-color 0.5s ease-out; 
+}
+
+.deleteitembuttonColor:hover{
+    background: #ffffff;
+    color: #ffffff;
+
+}
+
+
+.removelinkfromitemButton{
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.removelinkfromitemButton:hover{
+    color: #353535;
+}
+
+.itemColor{
+    background: #D9D9D9;
+    color: #353535;
+}
+
+.liremoveshowLink{
+    text-decoration: none !important;
+    color: #D1345B;
+    transition: color 0.5s ease-out;
+}
+
+.liremoveshowLink:active{
+    color: #353535;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+/* =================================== Review CSS =================================== */
+.notificationText{
+    text-align: justify;
+    word-wrap: break-word;
+}
+/* =================================== Webpage CSS =================================== */
+.pageAnimate{
+	opacity: 0;
+	animation: 1s slidefade3 1s forwards;
+    margin-top: 50px;
+}
+
+@keyframes slidefade3 {
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+.checked {
+    color: #F9BB1D;
+}
+
+.editbuttonColor{
+    background: #4D8D91;
+    color: #D9D9D9;
+    transition: background-color 0.5s ease-out; 
+}
+
+.editbuttonColor:hover{
+    background: #ffffff;
+    color: #ffffff;
+
+}
+
+.deletebuttonColor{
+    background: #D1345B;
+    color: #D9D9D9;    
+    transition: background-color 0.5s ease-out; 
+}
+
+.deletebuttonColor:hover{
+    background: #ffffff;
+    color: #ffffff;
+
+}
+
+/* =================================== HomePage CSS =================================== */
+.jumbotronBG{
+    background: #284B63;
+    color: #ffffff;
+}
+
+
+.homepagetextColor{
+    color: #fffff;
+}
+
+.homepagesearchbuttonColor{
+    background: #D9D9D9;
+    color: #353535;    
+    transition: background-color 0.5s ease-out;
+}
+
+.homepagesearchbuttonColor:hover{
+    background: #ffffff;
+}
+
+.homepagesquaresBGColor{
+    background: #284B63;
+    color: #D9D9D9;
+}
+
+.homepagesquares:hover{
+    color: #ffffff;
+}
+
+.iconremoveLink{
+    text-decoration: none;
+    color: #D9D9D9;
+    transition: color 0.5s ease-out;
+}
+
+.iconremoveLink:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.homepageAnimate{
+	opacity: 0;
+	animation: 1s slidefade 1s forwards;
+    margin-top: 100px;
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+/* =================================== Form CSS =================================== */
+.allformColor{
+    background: #3C6E71;
+}
+
+.removeLink{
+    background: #284B63;
+    transition: background-color 0.5s ease-out; 
+}
+
+.removeLink:hover{
+    background: #4D8D91;
+  
+}
+
+.removeLinka{
+    text-decoration: none !important;
+}
+/* =================================== User Profile CSS ========================== */
+.userColor{
+    background: #D9D9D9;
+    color: #353535;
+}
+
+.userbuttonColor{
+    background: #284B63;
+    color: #ffffff;
+    transition: background-color 0.5s ease-out; 
+}
+
+.userbuttonColor:hover{
+    background: #ffffff;
+
+}
+
+.removelinkfromButton{
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.removelinkfromButton:hover{
+    color: #353535;
+}
+/* =================================== Review CSS ========================== */
+.reviewColor{
+    background: #D9D9D9;
+    color: #284B63;
+}
+
+.reviewpageAnimate{
+	opacity: 0;
+	animation: 1s slidefade3 1s forwards;
+    margin-top: 13px;
+}
+
+@keyframes slidefade3 {
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+/* =================================== Header CSS ========================== */
+.removelinkfromNofications{
+    color: #417CA3;
+    text-decoration: none !important;
+    transition: background-color 0.5s ease-out; 
+}
+
+.removelinkfromNofications:hover{
+    color: #284B63;
+}
+
+.removelinkfromNofications:active{
+    color: #ffffff;
+}
+
+/* =================================== Footer's CSS ========================= */
+.siteContent {
+  flex: 0;
+}
+
+.socialIcons{
+    color: #D9D9D9;
+    transition: color 0.5s ease-out;
+}
+
+.socialIcons:hover{
+    color: #ffffff;
+}
+
+.liremoveLink{
+    text-decoration: none;
+    color: #D9D9D9;
+    transition: color 0.5s ease-out;
+}
+
+.liremoveLink:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#footercolor{
+    background: #353535;
+    color: #D9D9D9;
+    font-size: 0.8rem;
+}
+
+.footerlastcolor{
+    background-color: #AEC3B0;
+    color: #D9D9D9;
+}
+.footerbot{
+    width: 100%;
+    background: #353535;
+    color: #D9D9D9;
+}
+/* =================================== Notifications ========================= */
+.liremovenotificationLink{
+    text-decoration: none !important;
+    color: #353535;
+    transition: color 0.5s ease-out;
+}
+
+.liremovenotificationLink:active{
+    color: #284B63;
+    text-decoration: none;
+}
+/* =================================== Item New/Edit Form ========================= */
+.neweditpageAnimate{
+	opacity: 0;
+	animation: 1s slidefade4 1s forwards;
+    margin-top: 13px;
+}
+
+@keyframes slidefade4 {
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}

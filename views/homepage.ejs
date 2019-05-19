@@ -1,0 +1,95 @@
+<!--==========================================Include Header====================================================-->
+<% include ./partials/header %>
+
+<!--==========================================Jumbotron=========================================================-->
+<header>
+  
+  <div class="jumbotron jumbotron-fluid mb-0 text-center jumbotronBG">
+    <div class="container">
+      <h1 class="display-4 homepagetextColor">Welcome To Kingsville Connection</h1>
+        <p class="lead homepagetextColor  homepageAnimate">A Local Medium For Students To Buy/Sell Materials</p>
+          
+          <form class="d-flex justify-content-center  homepageAnimate" action="/items" method="GET">
+            <div class="form-group col-md-6 d-flex justify-content-center">
+              <input type="text" name="search" placeholder="Materials Search..." class="form-control" list="searchList">
+              <input type="submit" value="Search" class="ml-2 btn homepagesearchbuttonColor">
+                            <datalist id="searchList">
+              <option value="Book" selected>Book</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Software">Software</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Science">Science</option>
+              <option value="Other">Other</option>
+              <option value="Almost Perfect Condition"Almost Perfect Condition</option>
+              <option value="Great Condition">Great Condition</option>
+              <option value="Good Condition">Good Condition</option>
+              <option value="Decent Condition">Decent Condition</option>
+              <option value="Bad Condition">Bad Condition</option>
+              <option value="Memorial Student Union">Bookstore</option>
+              <option value="Engineering Complex">1st Floor</option>
+              <option value="Lewis Hall">University Police</option>
+              <option value="Jernigan Library">1st Floor</option>
+              <option value="Rhode Hall">1st Floor</option>
+              <option value="08:00 - 12:00">AM</option>
+              <option value="1:00 - 5:00">PM</option>
+              <option value="Mon-Wed-Fri">Mon-Wed-Fri</option>
+              <option value="Tue-Thur-Sun">Tue-Thur-Sun</option>
+              </datalist>
+            </div>
+          </form>
+          
+    </div>
+  </div>
+</header>
+<!--============================================Icons==========================================================-->
+<div class="container text-center my-4 py-4 homepagesquaresBGColor homepageAnimate">
+  <div class="row">
+    
+    <div class="col-md-4 fa-2x">
+      <a href="/items" class="iconremoveLink"><i class="fas fa-search homepagesquares"></i></a>
+      <h3>Browse</h3>
+      <h5>Search For The Best Price</h5>
+    </div>
+    
+    <div class="col-md-4 fa-2x">
+      <a href="/safety" class="iconremoveLink"><i class="fab fa-accusoft homepagesquares"></i></a>
+      <h3>Safety</h3>
+      <h5>Exchange Materials On Campus</h5>
+    </div>
+    
+    <div class="col-md-4 fa-2x">
+      <a href="/signup" class="iconremoveLink"><i class="fas fa-user-plus homepagesquares"></i></a>
+      <h3>Sign Up</h3>
+      <h5>Became A Member</h5>
+    </div>
+    
+  </div>
+</div>
+  
+<div class="container text-center my-4 py-4 homepagesquaresBGColor homepageAnimate">
+  
+  <div class="row">
+    
+    <div class="col-md-4 fa-2x">
+      <a href="/aboutus" class="iconremoveLink"><i class="fas fa-users homepagesquares"></i></a>
+      <h3>About Us</h3>
+      <h5>Learn More About The Team</h5>
+    </div>
+    
+    <div class="col-md-4 fa-2x">
+      <a href="/seniorproject" class="iconremoveLink"><i class="fas fa-project-diagram homepagesquares"></i></a>
+      <h3>Senior Project</h3>
+      <h5>Learn More About The Project</h5>
+    </div>
+    
+    <div class="col-md-4 fa-2x">
+      <a href="" class="iconremoveLink"><i class="fab fa-twitter-square homepagesquares"></i></a>
+      <h3>Social Media</h3>
+      <h5>Follow Us On Other Platforms</h5>
+    </div>
+    
+  </div>
+</div>
+  
+<!--============================================Footer Included=================================================-->
+<% include ./partials/footer %>

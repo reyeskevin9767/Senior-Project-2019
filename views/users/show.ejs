@@ -1,0 +1,120 @@
+<!--==========================================Include Header==========================================================-->
+<% include ../partials/header %>
+<!--==========================================String Sentence Case==========================================================-->
+<% String.prototype.capitalize = function() { %>
+<%    return this.charAt(0).toUpperCase() + this.slice(1); %>
+<% } %>
+<!--==========================================Title of User Profile===================================================-->
+<div class="container text-center text-white p-2 my-2">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">User Profile</h3>
+</div>
+<!--==========================================User Name===============================================================-->
+<div class="container my-1 pageAnimate">
+  <div class="container text-center text-white p-0 my-2">  
+			<div class="p-1 userColor shadow-sm rounded">
+				<h3 class="m-0"><%= user.username %></h3>
+			</div>
+  </div>
+</div>
+<!--==========================================User Image===============================================================-->
+<div class="container my-2 d-flex pageAnimate">
+	<div class="row justify-content-center align-self-center ">
+		<div class="col-md-6">
+			<div class="card shadow-sm border-0 mt-3">
+    		<img class="card-img-top" src="<%=user.image%>" alt="Card image cap">
+    	</div>
+		</div>
+<!--==========================================User Buttons===============================================================-->		
+<div class="col-md-6 d-flex">
+	<div class="p-3 mt-3 userColor shadow-sm rounded flex-grow-1">
+	  
+		<h5>Unviersity: <%=user.university%></h5>
+  	<h5>Profession: <%=user.profession%></h5>
+		<h5>Gender: <%=user.gender%></h5>
+		<h5>Year: <%=user.year%></h5>
+		
+    <% if(currentUser && currentUser.isStudent || currentUser && currentUser.isAdmin){ %>	
+	
+		<a href="/follow/<%= user.id %>"><button class="btn userbuttonColor removelinkfromButton mt-2 mr-2">
+		  <i class="fas fa-arrows-alt-h mr-2 align-text-bottom"></i>Follow User</button></a>			
+		
+		<a class="removelinkfromButton" href="mailto:<%= user.email %>"><button class="btn userbuttonColor mt-2 mr-2">
+		<i class="far fa-paper-plane mr-2"></i>Email User</button></a>
+	    <% }%>	
+		
+    <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>		
+		<a class="removelinkfromButton" href="mailto:kingsville.connection@gmail.com"><button class="btn userbuttonColor mt-2">
+		<i class="fas fa-paper-plane mr-2"></i>Email Team</button></a>	    
+
+
+  <div class="container mt-4">
+    <div class="row">
+    <a class="btn btn-md editbuttonColor removelinkfromButton" href="/users/<%=user._id%>/edit"><i class="fas fa-pen-square mr-2"></i>Edit Profile</a>
+    <form id="delete-form" action="/users/<%=user._id %>?_method=DELETE" method="POST">
+      <button class="ml-3 btn deletebuttonColor removelinkfromButton"><i class="fas fa-user-minus mr-2"></i>Delete Profile</button> 
+    </form>
+    <% }%>
+  	</div>
+  </div>
+				
+	</div>
+</div>
+		
+</div>
+</div>
+<!--==========================================Posts Title===================================================================-->	
+<div class="container my-4 pageAnimate">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="p-1 userColor shadow-sm text-center mt-4 rounded">
+				<h2 class="m-0">Posts</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<!--==========================================Posts Area===================================================================-->	
+<div class="container pageAnimate">
+  <div class="row">
+    <% items.reverse().forEach(function(item){ %>       <!-- For Loop that goes through the array -->
+    <div class="col-md-4 col-sm-6">
+      
+    <div class="card mb-4 cardindexColor border-0 shadow-sm">
+    <img class="card-img-top" src="<%=item.image%>" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text font-weight-bold">Material: <%=item.name.substring(0, 21).capitalize()%>...</p>
+      <p class="card-text font-weight-bold">Price: <%=item.price%></p>
+      <p class="card-text font-weight-bold">Type: <%=item.type%></p>
+      
+      <div class="btn-group mb-3">
+        <a href="/items/<%=item._id%>" class="btn btn-md userbuttonColor removelinkfromButton" role="button">
+        <i class="far fa-window-maximize mr-2"></i>Show More Info</a>
+      </div>
+      
+      <div>
+        <% if (item.rating === 0) { %>
+            <em>No reviews yet.</em>
+        <% } else { %>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star <% if (item.rating > 1.5) { %> checked <% } %>"></span>
+            <span class="fa fa-star <% if (item.rating > 2.5) { %> checked <% } %>"></span>
+            <span class="fa fa-star <% if (item.rating > 3.5) { %> checked <% } %>"></span>
+            <span class="fa fa-star <% if (item.rating > 4.5) { %> checked <% } %>"></span>
+        <% } %>
+      </div>
+     
+      <div class="d-flex justify-content-between align-items-center">
+        <small class="text-muted"><%= moment(item.createdAt).fromNow() %></small>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+  <% }); %>
+  
+  </div>
+
+</div>
+<!--==========================================Include Footer==========================================================-->	
+<% include ../partials/footer %>

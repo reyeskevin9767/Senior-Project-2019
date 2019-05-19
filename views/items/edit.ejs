@@ -1,0 +1,146 @@
+<!--==========================================Include Header==========================================================-->
+<% include ../partials/header %>
+
+<!--==========================================Title of Edit Form======================================================-->
+<div class="container text-center text-white p-2 my-3">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">Edit Post</h3>
+</div>
+
+<!--==========================================Edit Form===============================================================-->
+<div class="container col-md-6 shadow-sm mt-5 mb-5 allformColor neweditpageAnimate rounded">
+
+  <form action="/items/<%=item._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="container text-white py-3">
+
+<!--==========================================Material Name==========================================================-->
+     
+      <div class="form-row">
+        <div class="form-group text-white col-md-6">
+          <label for="editItemName"><i class="fas fa-signature mr-2"></i>Material's Name</label>
+          <input type="text" class="form-control" id="editItemName" name="item[name]" value="<%=item.name%>">
+      </div>
+    
+<!--==========================================Price==================================================================-->
+
+      <div class="form-group text-white col-md-6">
+          <label for="editPrice"><i class="fas fa-dollar-sign mr-2"></i>Price</label>
+          <input type="text" class="form-control" id="editPrice" name="item[price]" value="<%=item.price%>" min="0.00" step="0.01 required">
+      </div>
+
+<!--==========================================Author===============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="editbookAuthor"><i class="fas fa-signature mr-2"></i>Author(s)</label>
+          <input type="text" class="form-control" id="editbookAuthor" name="item[bookAuthor]" value="<%=item.bookAuthor%>" list="authorName">
+                            <datalist id="authorName">
+          <option value="N/A" selected>N/A</option>
+          </datalist>
+        </div>
+
+<!--==========================================Type===============================================================-->
+    
+        <div class="form-group text-white col-md-6">
+          <label for="editType"><i class="fab fa-typo3 mr-2"></i>Type</label>
+          <input type="text" class="form-control" id="editType" name="item[type]" pattern="(Book|Electronics|Software|Hardware|Science|Other)" 
+          value="<%=item.type%>" list="typeName" required>
+          
+          <datalist id="typeName">
+          <option value="Book" selected>Book</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Software">Software</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Science">Science</option>
+          <option value="Other">Other</option>
+          </datalist>
+        </div>
+
+<!--==========================================Condition============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="editDescription"><i class="fas fa-receipt mr-2"></i>Material's Condition</label>
+          <input type="text" class="form-control" id="editDescription" name="item[description]" 
+          pattern="(Almost Perfect Condition|Great Condition|Good Condition|Decent Condition|Bad Condition)"
+          value="<%=item.description%>" list="descriptionName" required>
+          
+          <datalist id="descriptionName">
+          <option value="Almost Perfect Condition" selected>Almost Perfect Condition</option>
+          <option value="Great Condition">Great Condition</option>
+          <option value="Good Condition">Good Condition</option>
+          <option value="Decent Condition">Decent Condition</option>
+          <option value="Bad Condition">Bad Condition</option>
+          </datalist>
+        </div>
+        
+<!--==========================================Status============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="editStatus"><i class="fas fa-receipt mr-2"></i>Material's Status</label>
+          <input type="text" class="form-control" id="editStatus" name="item[status]" 
+          pattern="(On Sale|Request Material)"
+          list="statusName" value="<%=item.status%>" required>
+          
+          <datalist id="statusName">
+          <option value="On Sale" selected>On Sale</option>
+          <option value="Request Material">Request Material</option>
+          </datalist>
+        </div>
+
+<!--==========================================Location============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="editLocation"><i class="fas fa-map-marker-alt mr-2"></i>Preferred Location</label>
+          <input type="text" class="form-control" id="editLocation" name="item[location]"
+          pattern="(Memorial Student Union|Engineering Complex|Lewis Hall|Jernigan Library|Rhode Hall)"
+          value="<%=item.location%>" list="locationName" required>
+          <datalist id="locationName">
+          <option value="Memorial Student Union" selected>Bookstore</option>
+          <option value="Engineering Complex">1st Floor</option>
+          <option value="Lewis Hall">University Police</option>
+          <option value="Jernigan Library">1st Floor</option>
+          <option value="Rhode Hall">1st Floor</option>
+          </datalist>
+        </div>
+
+<!--==========================================Time============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="editTime"><i class="far fa-clock mr-2"></i>Preferred Time</label>
+          <input type="text" class="form-control" id="editTime" name="item[time]" 
+          pattern="(08:00 - 12:00|1:00 - 5:00)"
+          value="<%=item.time%>" list="timeName" required>
+          <datalist id="timeName">
+          <option value="08:00 - 12:00" selected>AM</option>
+          <option value="1:00 - 5:00">PM</option>
+          </datalist>
+        </div>
+        
+<!--==========================================Day============================================================-->
+        <div class="form-group text-white col-md-6">
+          <label for="editDay"><i class="fas fa-calendar-day mr-2"></i></i>Preferred Days</label>
+          <input type="text" class="form-control" id="editDay" name="item[day]" value="<%=item.day%>" 
+          pattern="(Mon-Wed-Fri|Tue-Thur-Sun)"
+          list="dayName" required>
+          <datalist id="dayName">
+          <option value="Mon-Wed-Fri" selected>Mon-Wed-Fri</option>
+          <option value="Tue-Thur-Sun">Tue-Thur-Sun</option>
+          </datalist>
+        </div>
+        
+<!--==========================================Image============================================================-->
+
+        <div class="form-group text-white col-md-6">
+          <label for="editImage"><i class="fas fa-images mr-2"></i>Upload Image</label>
+          <input type="file" class="" id="ediImage" name="image" accept="image/*">
+        </div>
+
+      </div>
+
+<!--==========================================Submit============================================================-->
+      <button type="submit" class="btn text-white removeLink"><i class="fas fa-paste mr-2"></i>Submit</button>
+      
+    </div>
+  </form>
+</div>
+
+<!--==========================================Footer============================================================-->
+<% include ../partials/footer %>
+

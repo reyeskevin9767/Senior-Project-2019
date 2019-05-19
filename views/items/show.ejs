@@ -1,0 +1,172 @@
+<!--==========================================Include Header==========================================================-->
+<% include ../partials/header %>
+
+<!--==========================================String Sentence Case==========================================================-->
+<% String.prototype.capitalize = function() { %>
+<%    return this.charAt(0).toUpperCase() + this.slice(1); %>
+<% } %>
+
+<!--==========================================Title of More Info======================================================-->
+<div class="container text-center text-white p-2 my-2">  
+  <i class="fas fa-crown fa-2x mb-4 text-center"></i>
+  <h3 class="text-center">More Info</h3>
+</div>
+
+<!--==========================================More Info===============================================================-->
+<div class="container pageAnimate">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3 itemColor shadow-sm">
+                
+                <div class="card-body">
+                    <p class="card-text">Material's Name: <%=item.name.capitalize() %></p>
+                    <p class="card-text">Material's Condition: <%=item.description %></p>
+                    <p class="card-text">Material's Status: <%=item.status %></p>
+                    <p class="card-text">Price ($): <%= item.price %></p>
+                    <p class="card-text">Author(s): <%= item.bookAuthor.capitalize() %></p>
+                    <p class="card-text">Type: <%= item.type%></p>
+                    <p class="card-text">Preferred Location: <%= item.location%></p>
+                    <p class="card-text">Preferred Time: <%= item.time%></p>
+                    <p class="card-text">Preferred Day: <%= item.day%></p>
+                    <hr>
+                    <p class="card-text"><em>Submitted: <a class="liremoveshowLink" href="/users/<%= item.author.id %>"><%= item.author.username %></a>, <%= moment(item.createdAt).fromNow() %></em></p>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <% if(currentUser && item.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                                <a class="btn itemMaterialbuttonColor removelinkfromitemButton mt-2 mr-2" href="/items/<%=item._id%>/edit"><i class="fas fa-pen-square mr-2"></i>Edit Material</a>
+                                
+                                <form id="delete-form" action="/items/<%=item._id %>?_method=DELETE" method="POST">
+                                    <button class="mt-2 btn deleteitembuttonColor removelinkfromitemButton"><i class="fas fa-trash mr-2"></i>Delete Material</button> 
+                                </form>
+                                
+                            <% }%>
+                            
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="col-md-6 mt-4 pageAnimate">
+            <div class="card mb-4 border-0 shadow-sm">                     <!-- Card That Holds Infomation About Item-->
+                <img class="card-img-top" src="<%=item.image%>" alt="Card image cap">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--==========================================More Info===============================================================-->
+<div class="container pageAnimate">
+        <div class="col-md-12 p-0">
+            <div class="card mb-4 shadow-sm itemColor">
+                <div class="card-body">
+                    
+                    <% if (item.rating === 0) { %>
+                    <h5><em>No Reviews Yet</em></h5>
+                    <hr>
+                    <% } else { %>
+                    
+                    <p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (item.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (item.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (item.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (item.rating > 4.5) { %> checked <% } %>"></span>
+                        <em>(total reviews: <%= item.reviews.length %>)</em>
+                    </p>
+                    
+                    <p>Current Item Rating: <strong><%= item.rating.toFixed(2) %></strong></p>
+                    
+                    <p><h4>Latest Reviews For This Item</h4></p>
+                    <hr class="mt-0">
+                    
+                    <% item.reviews.slice(0, 5).forEach(function(review){ %>
+                        <div class="row">
+                            
+                            <div class="col-md-3">
+                                <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                                    <div>
+                                        Review By: <strong><%= review.author.username %></strong>
+                                    </div>
+                                        <span><em><%= review.updatedAt.toDateString() %></em></span>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <p class="reviewText"><%= review.text %></p>
+                                
+                                <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+                                
+                                <a class="btn itemMaterialbuttonColor removelinkfromitemButton mt-2 mr-2" href="/items/<%=item._id %>/reviews/<%=review._id %>/edit"><i class="fas fa-pen-square mr-2"></i>Edit Review</a>
+                                
+                                <form id="delete-form" action="/items/<%=item._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                                          <button class="mt-2 btn deleteitembuttonColor removelinkfromitemButton"><i class="fas fa-trash mr-2"></i></i>Delete Review</button> 
+                                </form>
+                                
+                                <% } %>
+                            </div>
+                        </div>
+                    <hr>
+                    
+                    <% }); %>
+                    <div class="container">
+                        <div class="row">
+                    <div>
+                        <a class="btn text-white removeLink mr-2 mt-2" href="/items/<%= item._id %>/reviews"><i class="fas fa-search mr-2"></i>
+                            See All Reviews</a>
+                    </div>
+                    
+                    <% } %>
+                              <% if(currentUser && currentUser.isStudent || currentUser && currentUser.isAdmin){ %>
+                    <div>
+                        <a class="btn text-white mt-2 removeLink <% if (currentUser && item.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/items/<%= item._id %>/reviews/new"><i class="fas fa-plus-square mr-2"></i>
+                            Write A New Review</a>
+                    </div>
+                                  <% } %>                 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--==========================================Comment Section===============================================================-->
+<div class="container  pageAnimate">
+    <div class="col-md-12 p-0">
+        <div class="card mb-4 shadow-sm itemColor">
+                
+        <div class="card-body">            
+        <h5><em>Comments</em></h5>
+            <% if(currentUser && currentUser.isStudent || currentUser && currentUser.isAdmin){ %>
+
+            <p><a class="btn removeLink text-white" href="/items/<%=item._id%>/comments/new"><i class="fas fa-pen-square"></i> Add A New Comment</a></p>
+            <% } %>  
+
+                    <hr>
+                    
+                    <% item.comments.forEach(function(comment){ %>
+                        <p class="card-text"> <i class="fas fa-user"></i> <%=comment.author.username %></p>
+                        <p class="card-text"><%=comment.text %></p>
+                      
+                            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                                <a class="btn itemMaterialbuttonColor removelinkfromitemButton mt-2 mr-2" href="/items/<%=item._id%>/comments/<%=comment._id%>/edit"><i class="fas fa-pen-square mr-2"></i>Edit Comment</a>
+                      
+                            <form id="delete-form" action="/items/<%=item._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                <button class="mt-2 btn deleteitembuttonColor removelinkfromitemButton"><i class="fas fa-trash mr-2"></i>Delete Comment</button> 
+                            </form>
+                            
+                            <% }%>
+                            
+                      <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted"><%= moment(comment.createdAt).fromNow() %></small>
+                      </div>
+                      
+                      <hr>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+</div>
+<!--==========================================Include Footer===============================================================-->
+<% include ../partials/footer %>
